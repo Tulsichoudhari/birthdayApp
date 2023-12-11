@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>Birthday App</title>
+	<style>
+	*{font-size:40px; font-family:Arial;}
+	body{background-color:#f0c44d;}
+	.btn{
+	width:30%;
+	color:green;
+	background-color:white;
+	}
+	</style>
+	<script>
+		let frnds=["ravi","pooja","rohit"]
+		function operation()
+		{
+		event.preventDefault();
+		let action=document.activeElement.value;
+			if (action=="add")
+			{
+				let name=prompt("Enter frnd name to add: ");
+				if (name !="")
+					frnds.push(name);
+				show();
+			}
+			else if(action =="Remove")
+			{
+				let name = prompt("Enter frnd name to remove");
+				let i=frnds.indexOf(name);
+				if (i==-1)
+					alert(name + "Not found");		
+				else 
+					frnds.splice(i,1);
+				show();
+			}
+		}
+		function show()
+		{
+			let ans=document.getElementById("ans")
+			ans.innerHTML=frnds;
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Riya ka Birthday</h1>
+	<form onsubmit="operation()">
+	<input type="submit" value="add"  class="btn"/>
+	<input type="submit" value="Remove"  class="btn"/>
+	</form>
+	<h2 id="ans"></h2>
+	<script>
+		show();
+	</script>
+</center>
+</body>
+</html>
